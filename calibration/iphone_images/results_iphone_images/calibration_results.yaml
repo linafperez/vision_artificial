@@ -1,0 +1,501 @@
+%YAML:1.0
+---
+image_width: 2316
+image_height: 3088
+board_columns: 8
+board_rows: 5
+square_size: 26.
+camera_matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 2.7060138435043405e+03, 0., 1.1575000000000000e+03, 0.,
+       2.7053904830449810e+03, 1.5435000000000000e+03, 0., 0., 1. ]
+distortion_coefficients: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [ -1.9741796197409112e-02, 5.6291054368331317e-01, 0., 0.,
+       -1.1860202292145989e+00 ]
+calibration_rms_error: 1.0666685024754559e+00
+overall_reprojection_error: 1.0666698994795403e+00
+rotation_vectors:
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.0892734613992856e-02, 5.3292262431302116e-03,
+          3.1202518279315528e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.7046307296985766e-01, -1.8503784175842211e-01,
+          -2.4888332707908081e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.4858185981372904e-02, -1.5880358928100085e+00,
+          2.7101396174116039e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 6.5320841433980104e-01, -5.8037357544279944e-01,
+          2.6007645796813086e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.0019448181775061e-01, 1.6782392116281399e+00,
+          2.6331821034415386e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.5897622837269281e+00, -6.5344384195270902e-02,
+          -2.6784592321805896e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.4081580541876199e-01, -8.7700017219821208e-02,
+          -2.2463736881744993e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.4551336215911175e+00, 1.6419634982595244e-01,
+          -2.4298841256615766e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.8359679005149823e-01, -1.1276455779980239e-01,
+          2.3558322641129337e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.9246140393985298e-01, 1.1788339305336764e+00,
+          -2.8968061252406172e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.3436571661708132e+00, -1.8429937645716529e-01,
+          -2.6458029932146072e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.9297511246596111e-01, -1.5670470295023151e+00,
+          -2.6776557797753879e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 5.8398115662492783e-02, 1.6276773438058945e+00,
+          -2.6372870680482552e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -9.3976951355821647e-01, 4.4072174692019744e-01,
+          2.6341609012892904e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -4.7495227011555952e-01, -7.7893099181778203e-01,
+          2.6425776811001227e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -6.0533162046855293e-01, -9.4938840399978200e-02,
+          -3.0588863312416006e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -7.2704759252764017e-01, 2.6592084917719899e-01,
+          6.9599088654664054e-01 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -2.9007923422058751e-01, 1.3444843593632455e-01,
+          -1.5599615828280540e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -2.1555913950429570e-01, -6.1474028798879761e-02,
+          -2.2906734054128894e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 3.5523426935706076e-01, -4.5914406040120653e-01,
+          -2.1423942940827176e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.2863193562617586e-01, 3.1936762923687428e-01,
+          -5.4383767011123463e-01 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -4.2101791403186491e-02, 1.6865860931161164e-01,
+          -1.5350578038097795e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 8.7629446390163146e-01, 4.9976631733793564e-01,
+          2.1569923416200258e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 9.1264485336618217e-01, -2.1574685431667998e-01,
+          -2.9738821849911967e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 4.8631551552770586e-01, -7.0693553234343298e-01,
+          1.9820504912524903e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.3953656064004827e+00, -4.6554862482743509e-01,
+          -2.7344628275585166e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -6.5270975909584816e-01, -9.2221512165347200e-02,
+          2.4820105945657933e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.2713919044301936e+00, -6.3121076542738497e-01,
+          -2.7471289917316084e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -3.4039285622858867e-01, 1.0292800365918686e+00,
+          -2.8538535370726010e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -4.7819321260662961e-01, 4.4543226308369382e-01,
+          -2.1534860488977934e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -2.4589277454781860e-01, -1.2750183394650589e+00,
+          2.7934527850911128e+00 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.7781008039666016e-01, 6.6363116603384587e-01,
+          1.0085712992727133e-01 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.6040845012604660e-02, -7.7401459314775067e-01,
+          -5.0369731990215916e-01 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 7.3819954496377238e-01, 1.4901139417818027e-02,
+          -3.7690157070203134e-01 ]
+translation_vectors:
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 9.3730926899075570e+01, 5.1940707183673780e+01,
+          4.3949757282640815e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.2841674773895811e+01, 1.2208808321931033e+02,
+          5.3278708089527106e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 9.1384002314619465e+01, -1.2922937865699356e+02,
+          5.7681883089189068e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.1261674610563135e+02, -6.0793427067022691e+01,
+          4.6103702116099885e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 8.6987055440579113e+01, 9.5037547970250486e+01,
+          3.4086283644636961e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 9.3158393843284031e+01, 4.4519494430684439e+01,
+          3.7955707887488495e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.8181395086034847e+01, 9.6101646798523419e+01,
+          4.4598647841558551e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.5287100159192806e+02, 1.8589022843104152e+02,
+          8.2771454237541377e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 9.5213506334928937e+01, -4.3201908436162046e+00,
+          4.2509671481850921e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 6.4866867914007628e+01, 4.7220071854536876e+01,
+          7.6054382907107833e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -3.4915953326374279e+01, 1.7231565489270548e+02,
+          6.5177517914985106e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 9.3033581043453125e+01, 7.0481200779542576e+01,
+          3.4995452476782901e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.1290086798727675e+02, -1.4815159024555317e+02,
+          5.5373202725932856e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.4604488999542941e+01, 8.8088240000505635e+01,
+          8.4395457601406690e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.2839711379345573e+01, -3.9076065850820066e+02,
+          1.0586637118680594e+03 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.2166559000790693e+02, -2.5173812306214847e+02,
+          8.0911901256238104e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -6.6709692292623600e+01, -2.5114137419713483e+01,
+          5.4548830899999621e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.0317853265316572e+02, 1.1226786238144517e+02,
+          6.4682953284083919e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 3.5825162988928042e+01, 1.5458533392363509e+02,
+          7.0778324785967800e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.0150997020675052e+02, 3.3690922183168720e+02,
+          8.2677707710328934e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -2.3639098683617797e+02, -1.2326446875079297e+02,
+          8.0392961904303820e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.1992050439064599e+02, 2.6655764409124833e+02,
+          9.5217900856555525e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 7.9436782268647107e+01, -1.7183024483027927e+02,
+          6.4109888735185064e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -8.9086267701037542e+01, 2.6423445462316420e+02,
+          8.4217756785140568e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 8.2101384749543314e+01, -1.4285860821496061e+02,
+          4.8975215131570519e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.2920821197689821e+02, 1.4337793129902965e+02,
+          4.4727543240939610e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.6371148661548766e+01, 1.2600277463951966e+02,
+          9.0607203176459643e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.4331057348895544e+02, 2.7762531184533839e+02,
+          8.5725566033174528e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 2.1247001966283023e+02, 5.4850971826054092e+01,
+          7.1616565073225411e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.4943125259008679e+02, -1.2304557714127164e+02,
+          8.3044414013243579e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -4.2546648888543189e+01, 4.7876199678246486e+01,
+          7.2383373673624715e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ 1.3953745046808820e+01, -3.4726770242398977e+01,
+          7.2037275987064993e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.0337095697935399e+02, 1.4069481262666815e+02,
+          5.6871630669020954e+02 ]
+   - !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: d
+      data: [ -1.0074349696137028e+02, -1.4618298532471024e+02,
+          5.5971956065494965e+02 ]
+successful_images:
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/1.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/2.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/3.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/4.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/5.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/7.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/8.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/9.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/10.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/11.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/12.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/13.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/14.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/15.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/16.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/17.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/18.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/19.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/20.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/21.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/22.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/23.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/24.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/25.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/26.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/27.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/28.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/29.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/30.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/31.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/32.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/33.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/34.jpeg"
+   - "/mnt/d/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial/calibration/iphone_images/35.jpeg"
+per_view_reprojection_errors:
+   - 5.1237607426570309e-01
+   - 4.2921239750758278e-01
+   - 1.8448685115615802e+00
+   - 1.0991455388920170e+00
+   - 2.1471311207193464e+00
+   - 1.6176620801765142e+00
+   - 8.1531766516040693e-01
+   - 9.4419744693062824e-01
+   - 6.3116981667200589e-01
+   - 1.1032587940391982e+00
+   - 1.2702353490816876e+00
+   - 1.7961039083086960e+00
+   - 1.8433508677808201e+00
+   - 7.0364731481970533e-01
+   - 4.7566774069751216e-01
+   - 7.0009497982090374e-01
+   - 9.1316206418377788e-01
+   - 5.1628003633997355e-01
+   - 2.9108838781438762e-01
+   - 5.2978327377266166e-01
+   - 7.0872768024031418e-01
+   - 4.6241713342106283e-01
+   - 1.1172311551727994e+00
+   - 6.8383232529475269e-01
+   - 1.1612084142044483e+00
+   - 1.1667549851493213e+00
+   - 5.1214424172097417e-01
+   - 6.3548730701189315e-01
+   - 1.0209677496633112e+00
+   - 5.2373890183576899e-01
+   - 1.2945064896664265e+00
+   - 1.1043070905352581e+00
+   - 1.0710338971953388e+00
+   - 1.0704458478189336e+00
