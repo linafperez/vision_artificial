@@ -12,7 +12,7 @@ Se implementó un módulo para realizar la calibración de la cámara utilizada 
 
 A continuación se muestra un ejemplo de la detección de las esquinas del tablero utilizado durante el proceso de calibración:
 
-![Detección de esquinas para calibración](8_corners.jpg)
+![Detección de esquinas para calibración](8.jpeg)
 
 ### Estimación de pose con MediaPipe
 
