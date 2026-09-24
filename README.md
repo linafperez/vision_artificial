@@ -33,9 +33,6 @@ Vision_Artificial/
 └── Libros/                     
 ```
 
-`data/` y `models/` se versionan intencionalmente. `Libros/`, los binarios,
-las salidas de Bazel, los directorios de compilación y las ejecuciones nuevas
-en `results/runtime/` o `results/generated/` se ignoran.
 
 ## Flujo de la aplicación
 
