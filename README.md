@@ -108,19 +108,3 @@ Opciones de interacción: espacio pausa/reanuda, `R` reinicia el contador y
 `Q` o `Esc` termina. Para ejecución sin interfaz gráfica use `--no-display`
 junto con `--output`.
 
-## Datos preservados
-
-- Calibración: 35 imágenes de iPhone y 35 imágenes de tablet.
-- Videos: `b_skip.mp4`, `caballito.mp4`, `handstand.mp4`,
-  `horizontal_jumping.mp4`, `jumping_jacks.mp4`, `lunges.mp4`,
-  `mixed_sprint_drills.mp4` y `walking.mp4`.
-- Modelo: `models/pose_landmarker.task`.
-- Resultados previos: YAML y detecciones de esquinas de ambos dispositivos,
-  además de `results/pose/mediapipe.mp4`.
-
-## Verificación pendiente en el HPC
-
-Por política de cómputo, este cambio solo se verificó de forma estática. En el
-HPC todavía se debe compilar el objetivo Bazel, ejecutar la calibración sobre
-ambos datasets y validar el conteo con videos representativos antes de ajustar
-los umbrales.
