@@ -1,21 +1,126 @@
-# Visión Artificial
+# Visión Artificial: calibración, pose y conteo de sentadillas
 
-Este repositorio contiene el avance del proyecto desarrollado para la materia de Visión Artificial.
+Aplicación integrada en C++17 para calibrar cámaras con un tablero de ajedrez,
+estimar pose con MediaPipe Pose Landmarker y contar sentadillas a partir de los
+landmarks de cadera, rodilla y tobillo. Admite archivos de video y cámaras
+conectadas, puede corregir la distorsión con una calibración previa y permite
+guardar el video anotado.
 
-Actualmente, el proyecto cuenta con dos módulos implementados de manera independiente con el objetivo de probar y validar sus funcionalidades de forma autónoma. Posteriormente, estos módulos serán integrados junto con las demás funcionalidades del programa.
+## Arquitectura
 
-## Módulos implementados
+```text
+Vision_Artificial/
+├── BUILD                       # configuración Bazel para MediaPipe
+├── include/
+│   ├── calibration.h           # API del calibrador
+│   ├── pose_analysis.h         # API del pipeline de pose
+│   └── squat_counter.h         # contador y umbrales
+├── src/
+│   ├── main.cpp                # CLI integrada
+│   ├── calibration.cpp         # detección, calibración y error
+│   ├── pose_analysis.cpp       # cámara/video, MediaPipe y visualización
+│   └── squat_counter.cpp       # ángulos de rodilla e histéresis
+├── data/
+│   ├── calibration/
+│   │   ├── iphone_images/      # 35 imágenes originales
+│   │   └── tablet_images/      # 35 imágenes originales
+│   └── videos/                 # videos de prueba originales
+├── models/
+│   └── pose_landmarker.task    # modelo requerido por MediaPipe
+├── results/
+│   ├── calibration/            # YAML e imágenes de esquinas existentes
+│   └── pose/                   # demostración existente
+└── Libros/                     # referencias locales ignoradas por Git
+```
 
-### Calibración de cámara
+`data/` y `models/` se versionan intencionalmente. `Libros/`, los binarios,
+las salidas de Bazel, los directorios de compilación y las ejecuciones nuevas
+en `results/runtime/` o `results/generated/` se ignoran.
 
-Se implementó un módulo para realizar la calibración de la cámara utilizada en la adquisición de los videos. Este proceso permite estimar los parámetros intrínsecos de la cámara y los coeficientes de distorsión.
+## Flujo de la aplicación
 
-A continuación se muestra un ejemplo de la detección de las esquinas del tablero utilizado durante el proceso de calibración:
+1. `calibrate` enumera todas las imágenes compatibles del directorio, detecta
+   las esquinas internas, refina su posición a precisión subpíxel y calcula
+   matriz intrínseca, distorsión y errores de reproyección.
+2. `pose` abre una cámara o un video. Si recibe un YAML de calibración,
+   rectifica cada frame antes de la inferencia.
+3. MediaPipe Pose Landmarker produce 33 landmarks normalizados. El pipeline
+   dibuja el esqueleto y entrega caderas, rodillas y tobillos al contador.
+4. El contador calcula el ángulo cadera-rodilla-tobillo de cada lado y usa
+   histéresis: entra en fase baja por debajo de 120° y cuenta al volver a
+   superar 155°. Los landmarks deben tener presencia y visibilidad de al
+   menos 0.5.
 
-![Detección de esquinas para calibración](10_corners.jpg)
+La histéresis y los umbrales de 120°/155° se adaptaron del enfoque de
+`AngleRepCounter` de
+[Shalbulov/exercise_counter](https://github.com/Shalbulov/exercise_counter),
+publicado bajo licencia MIT. La adaptación reemplaza los 17 puntos COCO/YOLO
+por los índices MediaPipe 23–28, mantiene estado independiente por lado y usa
+el máximo de ambos contadores para tolerar oclusiones.
 
-### Estimación de pose con MediaPipe
+## Compilación en el HPC
 
-Se implementó un módulo de estimación de pose utilizando **MediaPipe Pose Landmarker**. El módulo procesa los frames de un video y permite visualizar los landmarks corporales y las conexiones entre las articulaciones detectadas.
+El proyecto debe compilarse desde el checkout de MediaPipe, añadiendo el
+directorio que contiene `Vision_Artificial` al `package_path`. Ejemplo
+orientativo (ajuste las rutas y la versión hermética de Python del clúster):
 
-[Ver demostración de estimación de pose con MediaPipe](mediapipe.mp4)
+```bash
+cd /ruta/a/mediapipe
+export HERMETIC_PYTHON_VERSION=3.12
+bazel build -c opt \
+  --define MEDIAPIPE_DISABLE_GPU=1 \
+  --package_path="$PWD:/ruta/al/directorio/que/contiene/el/proyecto" \
+  //Vision_Artificial:vision_app
+```
+
+No se incluyen binarios compilados en el repositorio.
+
+## Uso
+
+Calibrar con las imágenes de iPhone (tablero de 8 × 5 esquinas internas y
+cuadros de 26 mm):
+
+```bash
+./bazel-bin/Vision_Artificial/vision_app calibrate \
+  --images data/calibration/iphone_images \
+  --output results/runtime/iphone \
+  --board-cols 8 --board-rows 5 --square-mm 26
+```
+
+Analizar un video con corrección de distorsión:
+
+```bash
+./bazel-bin/Vision_Artificial/vision_app pose \
+  --input data/videos/walking.mp4 \
+  --model models/pose_landmarker.task \
+  --calibration results/calibration/iphone_images/calibration_results.yaml \
+  --output results/runtime/walking_annotated.mp4
+```
+
+Usar la cámara predeterminada o una cámara concreta:
+
+```bash
+./bazel-bin/Vision_Artificial/vision_app pose --input camera
+./bazel-bin/Vision_Artificial/vision_app pose --input camera:1
+```
+
+Opciones de interacción: espacio pausa/reanuda, `R` reinicia el contador y
+`Q` o `Esc` termina. Para ejecución sin interfaz gráfica use `--no-display`
+junto con `--output`.
+
+## Datos preservados
+
+- Calibración: 35 imágenes de iPhone y 35 imágenes de tablet.
+- Videos: `b_skip.mp4`, `caballito.mp4`, `handstand.mp4`,
+  `horizontal_jumping.mp4`, `jumping_jacks.mp4`, `lunges.mp4`,
+  `mixed_sprint_drills.mp4` y `walking.mp4`.
+- Modelo: `models/pose_landmarker.task`.
+- Resultados previos: YAML y detecciones de esquinas de ambos dispositivos,
+  además de `results/pose/mediapipe.mp4`.
+
+## Verificación pendiente en el HPC
+
+Por política de cómputo, este cambio solo se verificó de forma estática. En el
+HPC todavía se debe compilar el objetivo Bazel, ejecutar la calibración sobre
+ambos datasets y validar el conteo con videos representativos antes de ajustar
+los umbrales.

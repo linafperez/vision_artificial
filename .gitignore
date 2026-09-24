@@ -1,0 +1,49 @@
+# Personal reference material (must remain local)
+Libros/
+
+# Compiled objects, libraries, and executables
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+calibrate_camera
+executable
+
+# Bazel output trees and workspace links
+bazel-*
+.bazelrc.user
+
+# Other build systems
+/build/
+/build-*/
+/cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Generated runtime output (curated files directly under results/ stay tracked)
+/results/runtime/
+/results/generated/
+/results/**/*.tmp
+
+# SLURM output and error logs
+slurm-*.out
+slurm-*.err
+*.slurm.out
+*.slurm.err
+
+# Editor, operating-system, and temporary files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
