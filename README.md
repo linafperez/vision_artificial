@@ -22,15 +22,15 @@ Vision_Artificial/
 │   └── squat_counter.cpp       # ángulos de rodilla e histéresis
 ├── data/
 │   ├── calibration/
-│   │   ├── iphone_images/      # 35 imágenes originales
-│   │   └── tablet_images/      # 35 imágenes originales
-│   └── videos/                 # videos de prueba originales
+│   │   ├── iphone_images/      
+│   │   └── tablet_images/      
+│   └── videos/                 
 ├── models/
 │   └── pose_landmarker.task    # modelo requerido por MediaPipe
 ├── results/
-│   ├── calibration/            # YAML e imágenes de esquinas existentes
-│   └── pose/                   # demostración existente
-└── Libros/                     # referencias locales ignoradas por Git
+│   ├── calibration/            
+│   └── pose/                   
+└── Libros/                     
 ```
 
 `data/` y `models/` se versionan intencionalmente. `Libros/`, los binarios,
