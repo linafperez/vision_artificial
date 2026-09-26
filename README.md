@@ -309,3 +309,102 @@ Para procesar un archivo sin abrir una ventana:
   --output results/runtime/walking_annotated.mp4 \
   --no-display
 ```
+
+## Uso de la webcam desde WSL
+
+La aplicación puede procesar videos almacenados directamente desde WSL. Sin embargo, para utilizar en tiempo real la cámara integrada de Windows desde la versión Linux de `vision_app`, se utiliza FFmpeg en Windows para capturar la webcam y enviar el video hacia WSL mediante UDP.
+
+La configuración probada utiliza la cámara:
+
+```text
+ov9734_techfront_camera
+```
+
+con captura MJPEG de `640x480` a `30 fps`.
+
+### 1. Iniciar la webcam desde PowerShell
+
+Primero se debe abrir WSL normalmente. Después, en **PowerShell de Windows**, copiar y pegar el siguiente bloque completo:
+
+```powershell
+$WSL_IP = ((wsl -d Ubuntu-22.04 hostname -I).Trim() -split '\s+')[0]
+
+Write-Host "WSL IP: $WSL_IP"
+
+ffmpeg `
+  -f dshow `
+  -rtbufsize 256M `
+  -vcodec mjpeg `
+  -video_size 640x480 `
+  -framerate 30 `
+  -i video="ov9734_techfront_camera" `
+  -an `
+  -c:v libx264 `
+  -preset ultrafast `
+  -tune zerolatency `
+  -g 10 `
+  -keyint_min 10 `
+  -x264-params "repeat-headers=1:scenecut=0" `
+  -pix_fmt yuv420p `
+  -mpegts_flags resend_headers `
+  -f mpegts `
+  "udp://${WSL_IP}:5000?pkt_size=1316"
+```
+
+El primer comando obtiene automáticamente la dirección IP actual de `Ubuntu-22.04`, por lo que no es necesario escribirla manualmente cada vez que se inicia WSL.
+
+La ventana de PowerShell debe permanecer abierta mientras se utiliza la cámara. Al presionar `Ctrl+C`, FFmpeg deja de capturar y transmitir la webcam y, por lo tanto, `vision_app` deja de recibir imágenes.
+
+### 2. Ejecutar el contador de sentadillas en WSL
+
+Mientras FFmpeg permanece ejecutándose en PowerShell, abrir una terminal de **WSL** y copiar y pegar:
+
+```bash
+cd ~/Tareas/Tareas_2026/Octavo_Semestre/Vision_Artificial
+
+./bin/vision_app pose \
+  --input "udp://0.0.0.0:5000?fifo_size=1000000&overrun_nonfatal=1" \
+  --model models/pose_landmarker.task
+```
+
+La aplicación recibe el video enviado desde Windows, ejecuta MediaPipe Pose Landmarker y utiliza los landmarks obtenidos para calcular los ángulos de las rodillas y contar las sentadillas.
+
+Durante la ejecución se muestran:
+
+- landmarks de pose;
+- ángulo de la rodilla izquierda;
+- ángulo de la rodilla derecha;
+- número de sentadillas detectadas.
+
+Controles:
+
+- `Space`: pausar o reanudar.
+- `R`: reiniciar el contador.
+- `Q` o `Esc`: cerrar la aplicación.
+
+El flujo utilizado para la webcam es:
+
+```text
+Webcam
+   |
+   v
+Windows / DirectShow
+   |
+   v
+FFmpeg
+   |
+   |  H.264 + MPEG-TS / UDP
+   v
+WSL
+   |
+   v
+OpenCV VideoCapture
+   |
+   v
+MediaPipe Pose Landmarker
+   |
+   v
+Squat Counter
+```
+
+> **Nota:** esta solución se utiliza específicamente para acceder a la webcam de Windows desde la compilación Linux/WSL de `vision_app`. Para el procesamiento de archivos de video almacenados no es necesario utilizar FFmpeg en PowerShell.
